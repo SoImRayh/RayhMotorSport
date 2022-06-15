@@ -1,0 +1,20 @@
+version: "3.5"
+
+services:
+  db:
+    container_name: rayhMotorSport-DB
+    image : postgres
+    restart: always
+    volumes:
+      - rayhDB:/var/lib/postgresql/data/pgdata
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: rayhMotors
+      PGDATA: /var/lib/postgresql/pgdata
+    ports:
+      - "5455:5432"
+
+volumes:
+  rayhDB:
+    external: true
